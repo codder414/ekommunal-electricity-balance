@@ -1,0 +1,19 @@
+doctype html
+html(lang='ru')
+    head
+        title Баланс электричество
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet', href='../css/tailwind.css')
+    body
+        h1 Баланс электричество
+        table.border-separate.border
+            thead
+                tr
+                    each val in header
+                        th.border.border-green-600= val
+            tbody
+                each row in rows
+                    tr
+                        each col in row
+                            td.border.border-green-600= col
