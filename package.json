@@ -2,13 +2,14 @@
   "name": "template_typescript_clean",
   "version": "1.0.0",
   "description": "Clean typescript boilerplate with common stuff",
-  "main": "./dist/index.js",
+  "main": "./dist/server.js",
   "scripts": {
-    "start": "node ./dist/app.js",
+    "run": "node ./dist/app.js",
     "build:html": "node ./dist/runNRender.js",
     "build": "rimraf dist/ && tsc",
     "watch": "tsc -w",
-    "cleanup": "rimraf dist node_modules"
+    "cleanup": "rimraf dist node_modules",
+    "start": "micro"
   },
   "keywords": [],
   "author": "nurik6@gmail.com",
@@ -37,6 +38,7 @@
     "axios": "^0.21.1",
     "cheerio": "^1.0.0-rc.5",
     "envalid": "^6.0.2",
+    "micro": "^9.3.4",
     "pino": "^6.6.1",
     "pino-pretty": "^4.2.1",
     "pug": "^3.0.2"
