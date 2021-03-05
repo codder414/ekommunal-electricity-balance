@@ -16,6 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
+    "@types/micro": "^7.3.3",
     "@types/node": "^11.15.27",
     "@types/pino": "^6.3.2",
     "@types/pug": "^2.0.4",
