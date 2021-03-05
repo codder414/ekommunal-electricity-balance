@@ -1,7 +1,7 @@
 {
-  "name": "template_typescript_clean",
+  "name": "ekommunal-electricity-balance",
   "version": "1.0.0",
-  "description": "Clean typescript boilerplate with common stuff",
+  "description": "Retrieve electricity data from ekommunal",
   "main": "./dist/server.js",
   "scripts": {
     "run": "node ./dist/app.js",
