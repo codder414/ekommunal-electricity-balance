@@ -9,15 +9,16 @@ import * as path from 'path';
 const cache = new Cache();
 
 const app = Express();
+const router = Express.Router();
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, '../layout'));
 
 if (config.NODE_ENV === 'development') {
-	app.use(Express.static(path.join(__dirname, '../', './public')));
+	router.use(Express.static(path.join(__dirname, '../', './public')));
 }
 
-app.get('/', async (_, res) => {
+router.get('/', async (_, res) => {
 	const data = cache.get('page');
 	if (data) {
 		res.end(data);
@@ -29,7 +30,7 @@ app.get('/', async (_, res) => {
 	}
 });
 
-app.use(function (req, res) {
+router.use(function (req, res) {
 	res.status(404);
 
 	// respond with html page
@@ -48,7 +49,9 @@ app.use(function (req, res) {
 	res.type('txt').send('Not found');
 });
 
+app.use(config.BASE_URL, router);
 app.listen(3000, '0.0.0.0', () => log.info('Server listening on 0.0.0.0:3000...'));
+
 process.on('SIGINT', function () {
 	log.info('ctrl+c');
 	cache.clear();
