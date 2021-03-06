@@ -5,7 +5,8 @@ import { ServerResponse } from 'http';
 import { Cache } from './Cache';
 const cache = new Cache();
 
-module.exports = async (_: Request, res: ServerResponse) => {
+module.exports = async (req: Request, res: ServerResponse) => {
+	log.info({ url: req.url });
 	const data = cache.get('page');
 	if (data) {
 		res.end(data);
