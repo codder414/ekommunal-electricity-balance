@@ -8,5 +8,6 @@ export const config = envalid.cleanEnv(process.env, {
 	REGION: str(),
 	SUBREGION: str(),
 	NODE_ENV: str({ default: 'development' }),
-	LOG_LEVEL: str({ default: 'debug' })
+	LOG_LEVEL: str({ default: 'debug' }),
+	BASE_URL: str({ default: '/' })
 });

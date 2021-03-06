@@ -3,10 +3,14 @@ import { render } from './render';
 import { log } from './logger';
 import { ServerResponse } from 'http';
 import { Cache } from './Cache';
+import { config } from './config';
 const cache = new Cache();
 
 module.exports = async (req: Request, res: ServerResponse) => {
-	log.info({ url: req.url });
+	if (req.url !== config.BASE_URL.replace(/\/$/, '')) {
+		res.statusCode = 404;
+		res.end('<h1>Page not found!</h1>');
+	}
 	const data = cache.get('page');
 	if (data) {
 		res.end(data);
