@@ -1,17 +1,17 @@
 doctype html
 html(lang='ru')
     head
-        title Баланс электричество
+        title Электроэнергия
         meta(charset="UTF-8")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        link(rel='stylesheet', href=`${baseUrl}/css/tailwind.css`)
+        link(rel='stylesheet', href=`${baseUrl}css/bootstrap.min.css`)
     body
         h1 Баланс электричество
-        table.border-separate.border
+        table.table.table-primary.table-striped
             thead
                 tr
                     each val in header
-                        th.border.border-green-600= val
+                        th(scope="col")= val
             tbody
                 each row in rows
                     tr
