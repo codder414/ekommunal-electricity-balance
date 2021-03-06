@@ -8,7 +8,6 @@ import { Cache } from './Cache';
 const cache = new Cache();
 
 module.exports = async (req: Request, res: ServerResponse) => {
-	log.info({ url: req.url });
 	if (isStaticFile(req.url)) {
 		try {
 			const data = await openFile(req.url, cache);
