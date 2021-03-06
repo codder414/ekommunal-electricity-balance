@@ -7,7 +7,7 @@ import { config } from './config';
 const cache = new Cache();
 
 module.exports = async (req: Request, res: ServerResponse) => {
-	if (req.url !== config.BASE_URL.replace(/\/$/, '')) {
+	if (req.url.replace(/\/$/, '') !== config.BASE_URL.replace(/\/$/, '')) {
 		res.statusCode = 404;
 		res.end('<h1>Page not found!</h1>');
 	}
