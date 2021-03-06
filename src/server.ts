@@ -10,6 +10,7 @@ module.exports = async (req: Request, res: ServerResponse) => {
 	if (req.url.replace(/\/$/, '') !== config.BASE_URL.replace(/\/$/, '')) {
 		res.statusCode = 404;
 		res.end('<h1>Page not found!</h1>');
+		return;
 	}
 	const data = cache.get('page');
 	if (data) {
